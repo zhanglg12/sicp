@@ -6,7 +6,7 @@ def twenty_twenty_three():
     >>> twenty_twenty_three()
     2023
     """
-    return ______
+    return 2024-1
 
 
 def sum(a, b):
@@ -18,7 +18,7 @@ def sum(a, b):
     >>> sum(3, 8)
     11
     """
-    return ______
+    return a+b
 
 
 def diff_square(a, b):
@@ -30,4 +30,4 @@ def diff_square(a, b):
     >>> diff_square(3, 4)
     -7
     """
-    return ______
+    return a**2-b**2
