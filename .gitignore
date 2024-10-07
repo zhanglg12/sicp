@@ -15,3 +15,6 @@ Thumbs.db
 
 # 忽略 .conda 目录  
 .conda/  
+
+#忽略jupyter
+*.ipynb 
