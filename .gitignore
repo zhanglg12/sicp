@@ -21,3 +21,4 @@ Thumbs.db
 
 #忽略配置
 *.json
+.vscode/
