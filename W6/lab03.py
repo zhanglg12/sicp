@@ -83,6 +83,20 @@ def paths(m, n):
     "*** YOUR CODE HERE ***"
 
 
+def max_digit(n):  
+    # 将数字转换为字符串  
+    str_n = str(n)  
+    
+    # 初始化最大数字为0  
+    max_digit = 0  
+    
+    # 遍历每一位  
+    for digit in str_n:  
+        # 更新最大数字  
+        if int(digit) > max_digit:  
+            max_digit = int(digit)  
+    
+    return max_digit
 def max_subseq(n, l):
     """
     Return the maximum subsequence of length at most l that can be found in the given number n.
@@ -127,4 +141,12 @@ def max_subseq(n, l):
     >>> max_subseq(12345, 1)
     5
     """
-    "*** YOUR CODE HERE ***"
+    if len(str(n)) <= l:
+        return n
+    elif l == 1:
+        return max_digit(n)
+    elif l == 0:
+        return 0
+    else:
+        return max(max_subseq(int(n/10), l),max_subseq(int(n/10),l-1)*10+n%10)
+max_subseq(20125, 1)
