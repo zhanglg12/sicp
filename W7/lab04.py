@@ -17,6 +17,12 @@ def pair(x, y):
     >>> snd(p)
     2
     """
+    def p(i):
+        if i == 0:
+            return x
+        if i == 1:
+            return y
+    return p
 
 def change_fst(p, v):
     """Change pair p's first element into v and return it.
@@ -32,6 +38,8 @@ def change_fst(p, v):
     >>> snd(p)
     2
     """
+    p = pair(v, p(1))
+    return p
 
 def change_snd(p, v):
     """Change pair p's second element into v and return it.
@@ -47,6 +55,8 @@ def change_snd(p, v):
     >>> snd(p)
     3
     """
+    p = pair(p(0), v)
+    return p
 
 # Problem 4.1.2.1
 def distance(city1, city2):
@@ -92,7 +102,7 @@ def my_map(fn, seq):
     2023
     [None, None, None]
     """
-    "*** YOUR CODE HERE ***"
+    return [fn(i) for i in seq]
 
 # Problem 4.2.2
 def my_filter(pred, seq):
@@ -111,7 +121,7 @@ def my_filter(pred, seq):
     >>> my_filter(lambda x: max(5, x) == 5, [1, 2, 3, 4, 5, 6, 7])
     [1, 2, 3, 4, 5]
     """
-    "*** YOUR CODE HERE ***"
+    return [i for i in seq if pred(i)==True]
 
 # Problem 4.2.3
 def my_reduce(combiner, seq):
@@ -126,7 +136,11 @@ def my_reduce(combiner, seq):
     >>> my_reduce(lambda x, y: x + 2 * y, [1, 2, 3]) # (1 + 2 * 2) + 2 * 3
     11
     """
-    "*** YOUR CODE HERE ***"
+    k = seq[0]
+    for i in range(1,len(seq)):
+        k = combiner(k,seq[i])
+    return k
+
 
 # Problem 4.3.1
 def preorder(t):
@@ -213,4 +227,11 @@ def insert_items(lst, entry, elem):
     >>> large_lst3 is large_lst
     True
     """
-    "*** YOUR CODE HERE ***"
+    l = lst[:]   #注意，拷贝lst，直接等于会使得两者地址相等
+    k = 0
+    for i in lst:
+        if i == entry:
+            l.insert(k+1,elem)
+            k += 1
+        k += 1
+    return l
